@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Available Flights</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css files/style.css">
+  <link rel="stylesheet" href="../css files/Flight.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@300;400;500;700;900&display=swap">
+</head>
+
+<body onload="checkLoginStatus()">
+  <div class="header" style="min-height: 100px;">
+    <nav class="navbar">
+      <div class="container">
+        <input type="checkbox" name="bars" id="bars">
+        <div class="logo scroll-l">
+          <img src="../assets/logo.png" height="30" alt="" srcset="">
+          <span>Blue <strong>Wings</strong></span>
+        </div>
+        <div class="navigation  scroll-t">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="index.html" class="nav-link">Services</a>
+          <a href="index.html" class="nav-link">About</a>
+          <a href="index.html" class="nav-link">Contact</a>
+          <a href="index.html" class="nav-link">Reviews</a>
+        </div>
+        <div class="controls  scroll-r">
+          <label class="icon bars" for="bars"><i class="fa fa-bars"></i></label>
+          <div class="icon"><i class="fa fa-search"></i></div>
+          <div class="icon"><i class="fa fa-user-alt"></i></div>
+          <div class="btn btn-signup" id="loginFunc" style="align-items: center;"></div>
+
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="flight-search">
+    <select id="arrival">
+      <option value="New Delhi">New Delhi</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="Bangalore">Bangalore</option>
+      <option value="Kolkata">Kolkata</option>
+    </select>
+    <select id="departure">
+      <option value="New Delhi">New Delhi</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="Bangalore">Bangalore</option>
+      <option value="Kolkata">Kolkata</option>
+      <option value="Dubai">Dubai</option>
+    </select>
+    <input type="date" id="date">
+    <button onclick="CheckFlight()">Search</button>
+  </div>
+
+  <div class="cont">
+
+  </div>
+
+  </div>
+  </div>
+  <script>
+    async function fetchFlightData() {
+
+      const arrival = document.getElementById('arrival').value;
+      const departure = document.getElementById('departure').value;
+
+      console.log("Arrival: ", arrival, " Departure: ", departure);
+  
+      let response = await fetch('../json api/data.json')
+      let data = await response.json();
+
+      const filteredFlights = data.flights.filter(flight =>
+        flight.arrival === arrival && flight.departure === departure
+      )
+
+      document.querySelector(".cont").innerHTML = filteredFlights.map((item) => {
+        // const sponsoredAdBackgroundColor = flight.themeColor
+        const sponsoredAdBackgroundColor = item.themeColor || '#2c3a9b';
+        return `<div class="con" style="border-color: ${sponsoredAdBackgroundColor}; ">
+
+           <div class="sponsoredAd" style="background-color: ${sponsoredAdBackgroundColor}; ">
+              <img src="${item.image}" style="width:70px; height:50px; color:"white;">
+              <div class="brandDetails">
+                <div class="brandName">${item.airlineName}</div>
+                <div class="brandDescription">${item.brandDescription}</div>
+              </div>
+              <div class="tag sponsored">Sponsored</div>
+            </div>
+
+
+          <div class="tripCard">
+            <div class="imageColumn">
+              <img
+                src="${item.image}"
+                alt="IndiGo Logo" class="airlineLogo">
+              <div class="airlineName">${item.airlineName}</div>
+            </div>
+            <div class="detailsColumn">
+              <div class="top">
+                <span>${item.ArrivalTime}</span>
+                <div class="flightDuration">
+                  <svg viewBox="0 0 24 24" class="svg">
+                    <path
+                      d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z">
+                    </path>
+                  </svg>
+                  <span>${item.duration}</span>
+                </div>
+                <span>${item.destinationTime}</span>
+              </div>
+              <div class="bottom">
+                <div class="btmleft" style="margin-left: -21px; left: 0;">
+                  <div class="lef"></div>
+                  <div class="from-left">
+                    <div class="txt-from">${item.from}</div>
+                  </div>
+                </div>
+                <div class="mid">
+                  <div class="recBox" style="left: 37.2549%; width: 35.2941%;">
+                    <div class="rec" style="left: 0px;"></div>
+                    <div class="text" style="left: 50%;">${item.way}</div>
+                  </div>
+                </div>
+                <div class="btmright" style="margin-right: -21px; right: 0;">
+                  <div class="rig"></div>
+                  <div class="from-to">
+                    <div class="txt-to">${item.to}</div>
+                  </div>
+                </div>
+              </div>  
+            </div>
+            <div class="fareDetails">
+              <div class="price">${item.price}</div>
+              <div class="perPerson">Per person</div>
+              <button class="viewDealBtn" style="background-color: ${sponsoredAdBackgroundColor}; " onclick='bookFlight(${JSON.stringify(item)})'>Book Now</button>
+            </div>
+        </div>
+      </div>
+      `
+      }).join("")
+    }
+    function bookFlight(flight) {
+      
+      const loggedInUser = localStorage.getItem("loggedInUser")
+      if (loggedInUser) {
+        saveFlightDetails(flight)
+      } else {
+        window.location.href = 'login.html'
+      }
+    }
+    function saveFlightDetails(flight) {
+      localStorage.setItem('selectedFlight', JSON.stringify(flight));
+      window.location.href = 'BookFlights.html';
+    }
+
+    function CheckFlight() {
+      let arrival = document.getElementById("arrival").value
+      let departure = document.getElementById("departure").value
+      let date = document.getElementById("date").value
+
+      if (arrival == departure) {
+        document.getElementById("FromLabel").innerText =
+          alert('Arrival and Departure city cannot be same')
+      } else if (date == "") {
+        alert('Please Enter valid Date')
+      } else {
+        localStorage.setItem("Arrival_Place", arrival)
+        localStorage.setItem("Departure_Place", departure)
+        localStorage.setItem("Date", date)
+        fetchFlightData();
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      let arrival = localStorage.getItem('Arrival_Place') || "New Delhi";
+      let departure = localStorage.getItem('Departure_Place') || "New Delhi";
+      let date = localStorage.getItem('Date') || "2024-07-24";
+
+      document.getElementById("arrival").value = arrival;
+      document.getElementById("departure").value = departure;
+      document.getElementById("date").value = date;
+
+
+      fetchFlightData()
+    })
+
+  </script>
+</body>
+<script src="../Js files/index.js"></script>
+<script src="../Js files/disableBackButton.js"></script>
+
+</html>

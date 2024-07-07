@@ -1,0 +1,293 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+  }
+
+  .con {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #2c3a9b;
+    border-radius: 8px;
+  }
+
+  .sponsoredAd {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 10px;
+    gap: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .logo {
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  .brandDetails {
+    flex-grow: 1;
+  }
+
+  .brandName {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  .brandDescription {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .tag {
+    background-color: #fff;
+    color: #2c3a9b;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-left: auto;
+  }
+
+  .tripCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    gap: 50px;
+  }
+
+  .imageColumn {
+    margin-right: 20px;
+    margin-left: 30px;
+    /* border: 2px solid black; */
+    flex: 20%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .airlineLogo {
+    height: 60px;
+  }
+
+  .airlineName {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  .detailsColumn {
+    display: flex;
+    /* border: 2px solid black; */
+    flex-direction: column;
+    position: relative;
+    padding: 0 30px;
+    flex: 60%;
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1d1d1d;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  .flightDuration {
+    display: flex;
+    align-items: center;
+    color: #767676;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  .flightDuration svg {
+    fill: #9c9c9c;
+    height: 14px;
+    margin-right: 4px;
+    width: 14px;
+  }
+
+  .bottom {
+    border-top: 2px solid #dfdfdf;
+    margin: 6px 26px 0;
+    position: relative;
+    width: calc(100% - 52px);
+  }
+
+  .btmleft,
+  .btmright {
+    align-items: center;
+    color: #565656;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: -7px;
+    position: absolute;
+    width: 30px;
+  }
+
+  .lef,
+  .rig {
+    background-color: #fff;
+    border: 2px solid #bdbdbd;
+    border-radius: 100%;
+    height: 12px;
+    margin-bottom: 8px;
+    width: 12px;
+  }
+
+  .mid {
+    margin-top: -6px;
+    position: absolute;
+    width: 100%;
+  }
+
+  .recBox {
+    height: 25px;
+    position: absolute;
+  }
+
+  .rec {
+    background-color: #fff;
+    border: 2px solid #bdbdbd;
+    border-radius: 5px;
+    height: 10px;
+    position: absolute;
+    width: 100%;
+  }
+
+  .text {
+    color: #767676;
+    font-size: 12px;
+    line-height: 18px;
+    position: absolute;
+    top: 10px;
+    transform: translateX(-50%);
+  }
+
+
+  .fareDetails {
+    text-align: center;
+    flex: 20%;
+    /* border: 2px solid blue; */
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .price {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .perPerson {
+    font-size: 14px;
+  }
+
+  .viewDealBtn {
+    background-color: #2c3a9b;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .viewDealBtn:hover {
+    background-color: #1a256a;
+  }
+
+  .similarOptions {
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 0 0 8px 8px;
+    text-align: center;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .similarOptions:hover {
+    background-color: #e0e0e0;
+  }
+
+  .flight-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+
+  .flight-search select,
+  .flight-search input[type="date"],
+  .flight-search button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+
+  .flight-search select,
+  .flight-search input[type="date"] {
+    width: 200px;
+  }
+
+  .flight-search button {
+    background-color: #012062;
+    color: #fff;
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+
+  .flight-search button:hover {
+    background-color: #012b85;
+  }
+
+  .flight-list {
+    margin-top: 30px;
+  }
+
+  .flight-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .flight-item h3 {
+    margin-bottom: 5px;
+  }
+
+  .flight-item p {
+    margin: 5px 0;
+  }
+
+  .from-to {
+    position: relative;
+  }
+
+  .txt-from,
+  .txt-to {
+    color: #767676;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+    text-decoration: none;
+  }

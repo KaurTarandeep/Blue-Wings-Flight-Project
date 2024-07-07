@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS files/loginForm.css">
+</head>
+
+<body>
+    <div class="signinForm">
+        <form id="signInForm">
+            <h2>Create Account</h2>
+            <input type="text" id="fname" placeholder="First Name" onchange="logInputValues()">
+            <p></p>
+            <input type="text" id="lname" placeholder="Last Name" onchange="logInputValues()">
+            <p></p>
+            <input type="email" id="email" placeholder="Email" onchange="logInputValues()">
+            <p></p>
+            <input type="password" id="pass" placeholder="Password" onchange="logInputValues()">
+            <p></p>
+            <label id="invalid"></label>
+            <p></p>
+            <div class="btns">
+                <button class="signin"  style="border-radius: 14px;" onclick="handleFormSubmission(event)">SIGN IN</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script src="../Js files/SignInUser.js"></script>
+<script src="../Js files/ValidateForm.js"></script>
+<script src="../Js files/disableBackButton.js"></script> 
+
+</html>

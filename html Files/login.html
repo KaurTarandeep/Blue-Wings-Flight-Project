@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS files/loginForm.css">
+</head>
+<body>
+    <div class="loginForm">
+        <form>
+            <h2>Login</h2>
+            <input type="email" id="email" placeholder="Email"> <p></p>
+            <input type="password" id="pass" placeholder="Password" required> <p></p>
+            <label id="invalid"></label>
+            <button class="login" type="submit"  onclick="LoginUser(event)">LOGIN</button>
+            <p>Forgot <span><a href="ForgotPassword.html">Username/Password</a></span>?</p>
+            <p>Don't have an account?<span><a href="signin.html">Sign up</a></span></p>
+         
+        </form>
+    </div>
+    <script src="../Js files/LoginUser.js"></script>
+    <script src="../Js files/ValidateForm.js"></script>
+    <script src="../Js files/disableBackButton.js"></script> 
+
+</body>
+</html>

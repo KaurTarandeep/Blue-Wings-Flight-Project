@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue Wings</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../css files/style.css">
+  
+  <!-- this is firebase code -->
+  <!-- <script src="Js files/FirebaseCode.js" type="module"></script> -->
+ 
+</head>
+
+<body onload="checkLoginStatus()">
+  <div class="header">
+    <nav class="navbar">
+      <div class="container">
+        <input type="checkbox" name="bars" id="bars">
+        <div class="logo scroll-l"> .
+          <img src="../assets/logo.png" height="30" alt="" srcset="">
+          <span>Blue <strong>Wings</strong></span>
+        </div>
+        <div class="navigation  scroll-t">
+          <a href="#head" class="nav-link">Home</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="#reviews" class="nav-link">Reviews</a>
+
+        </div>
+
+        <div class="controls  scroll-r">
+          <label class="icon bars" for="bars" ><i class="fa fa-bars"></i></label>
+          <div class="btn btn-signup" id="loginFunc" style="align-items: center;"></div> 
+        </div>
+      </div>
+    </nav>
+
+    <div class="content">
+      <div class="head">
+        <h1>
+          Blue Wings Best Way To find a great deal in this year
+        </h1>
+        <h5 class="subtitle">
+          We do the right to get best offer to you ,best and cheap flight,let us to know what you need exactly that's
+          best
+          chalange for us
+        </h5>
+      </div>
+
+
+      <div class="booking-box">
+        <div class="options   scroll-t">
+          <div class="option active">
+            <span>One Way</span>
+          </div>
+          <div class="option">
+            <span>Round Trip</span>
+          </div>
+          <div class="option">
+            <span>Multy Way</span>
+          </div>
+        </div>
+        <div class="form   scroll-b">
+          <div class="line">
+            <div class="box">
+              <label for="arrival">From</label>
+              <select id="arrival">
+                <option value="" disabled selected>Select origin</option>
+                <option value="New Delhi">New Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Kolkata">Kolkata</option>
+            </select>
+            </div>
+            <div class="box">
+              <label for="departure">To</label>
+              <select id="departure">
+                <option value="" disabled selected>Select destination</option>
+                <option value="New Delhi">New Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Dubai">Dubai</option>
+            </select>
+            </div>
+            <div class="box">
+              <label for="date">Date</label>
+              <input type="date" id="date" placeholder="">
+            </div>
+          </div>
+          <div class="line-r">
+            <label id="FromLabel" style="margin-right: 150px; color: rgb(228, 7, 7);"> </label>
+         <button class="btn" id="findBtn" onclick="HandleFind()">find</button>
+          </div>     
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="items">
+        <div class="item   scroll-l">
+          <div class="image">
+            <img src="../assets/about.png" alt="" srcset="">
+          </div>
+        </div>
+        <div class="item   scroll-r">
+          <h2 class="title">Easy way to go to your next destination</h2>
+          <div class="desc">
+            <p>
+              At BlueWings, we believe in making your journey to your next destination as smooth as possible. With our user-friendly platform and top-notch services, we ensure that your travel plans are executed effortlessly.
+            </p>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+
+                <p>
+                  <i class="fa fa-angle-double-right"></i>
+                  Our streamlined booking system allows you to book flights, hotels, and car rentals with just a few clicks.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <i class="fa fa-angle-double-right"></i>
+                  Explore our travel guides and recommendations to discover new destinations and plan your perfect trip.
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- <div class="controls">
+            <div class="icon">
+              <img src="./assets/google-play.png" alt="" srcset="">
+            </div>
+            <div class="icon">
+              <img src="./assets/app-store.png" alt="" srcset="">
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="heading">
+        <h2 class="title   scroll-b">
+          Our Services
+        </h2>
+        <p class="desc   scroll-t">
+          Explore our wide range of services tailored to make your travel experience exceptional!
+        </p>
+      </div>
+      <div class="items">
+
+        <div class="item   scroll-l">
+          <div class="image">
+            <img src="../assets/service-1.jpg" alt="Cruise Ticket" srcset="">
+          </div>
+          <div class="details">
+            <h3 class="title">Cruise Ticket</h3>
+            <p>
+              Embark on a luxurious journey with our exclusive cruise tickets. Discover breathtaking destinations and create unforgettable memories.
+            </p>
+            <button class="btn">See all</button>
+          </div>
+        </div>
+
+        <div class="item   scroll-l">
+          <div class="image">
+            <img src="../assets/service-2.jpg" alt="Car Rent" srcset="">
+          </div>
+          <div class="details">
+            <h3 class="title">Car Rental</h3>
+            <p>
+              Enjoy the freedom of exploring your destination at your own pace with our reliable car rental services. Choose from a variety of vehicles to suit your travel needs.
+            </p>
+            <button class="btn">See all</button>
+          </div>
+        </div>
+
+
+        <div class="item   scroll-r">
+          <div class="image">
+            <img src="../assets/service-3.jpg" alt="Air Ticket" srcset="">
+          </div>
+          <div class="details">
+            <h3 class="title">Air Ticket</h3>
+            <p>
+              Fly hassle-free to your desired destination with our convenient air ticket booking. Enjoy seamless travel with top airlines and competitive fares.
+            </p>
+            <button class="btn">See all</button>
+          </div>
+        </div>
+
+        <div class="item   scroll-r">
+          <div class="image">
+            <img src="../assets/service-4.jpg" alt="Hotel Booking" srcset="">
+          </div>
+          <div class="details">
+            <h3 class="title">Hotel Booking</h3>
+            <p>
+              Find your perfect accommodation with our extensive hotel booking options. Whether you prefer luxury resorts or budget-friendly stays, we have something for everyone.
+            </p>
+            <button class="btn">See all</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="heading">
+        <h2 class="title   scroll-b">
+          Latest Reviews
+        </h2>
+        <p class="desc   scroll-b">
+          Hear What Our Clients Have to Say:
+        </p>
+      </div>
+      <div class="items">
+
+        <div class="item   scroll-l">
+          <div class="image">
+            <img src="../assets/client-3.png" alt="Client Image" srcset="">
+          </div>
+          <div class="details">
+            <h3 class="username">Alice Johnson</h3>
+            <p>
+              I had an amazing experience booking my flight with Blue Wings. The process was smooth, and I got great deals on my tickets. Highly recommended!
+            </p>
+            <div class="stars">
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon "><i class="fa fa-star"></i></div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="item   scroll-r">
+          <div class="image">
+            <img src="../assets/client-2.jpg" alt="Client Image" srcset="">
+          </div>
+          <div class="details">
+            <h3 class="username">John Smith</h3>
+            <p>
+              Blue Wings made my hotel booking a breeze. The options were diverse, and I found the perfect stay within my budget. Excellent service!
+            </p>
+            <div class="stars">
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon "><i class="fa fa-star"></i></div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="item   scroll-r">
+          <div class="image">
+            <img src="../assets/client-3.png" alt="Client Image" srcset="">
+          </div>
+          <div class="details">
+            <h3 class="username">Emily Davis</h3>
+            <p>
+              I had a fantastic experience renting a car through Blue Wings. The process was straightforward, and the vehicle was in excellent condition. Highly recommended!
+            </p>
+            <div class="stars">
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon "><i class="fa fa-star"></i></div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="item   scroll-r">
+          <div class="image">
+            <img src="../assets/client-4.png" alt="Client Image" srcset="">
+          </div>
+          <div class="details">
+            <h3 class="username">Michael Brown</h3>
+            <p>
+              Booking my cruise ticket with Blue Wings was a delightful experience. The options were plentiful, and the booking process was efficient. Will book again!
+            </p>
+            <div class="stars">
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon active"><i class="fa fa-star"></i></div>
+              <div class="icon "><i class="fa fa-star"></i></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="contact" id="contact">
+    <div class="container">
+
+      <div class="items">
+        <div class="item   scroll-t">
+          <div class="heading">
+            <h2 class="title">Get in Touch</h2>
+            <p class="desc">
+              We'd love to hear from you! Contact us for any inquiries or assistance you may need.
+            </p>
+            <div class="socials">
+              <a href="#" class="s-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="s-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="s-link"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="s-link"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="s-link"><i class="fa fa-heart"></i></a>
+
+            </div>
+          </div>
+        </div>
+        <div class="item   scroll-b">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10169245.332449624!2d-19.645046149999974!3d51.5182443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b2a3fbb08a5%3A0xa0d599016699b7ff!2sTravel%20Center!5e0!3m2!1sfr!2suk!4v1704819178119!5m2!1sfr!2suk"
+            height="450" style="border:0;" class="map" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="items">
+        <div class="item   scroll-t">
+          <div class="head">
+            <div class="logo">
+              <img src="../assets/logo.png" height="30" alt="" srcset="">
+              <span>Blue <strong>Wings</strong></span>
+            </div>
+          </div>
+          <div class="body">
+            <div class="desc">
+              <p>
+                Blue Wings Best Way To find a great deal in this year
+              </p>
+              <p class="subtitle">
+                We do the right to get best offer to you ,best and cheap flight,let us to know what you need exactly
+                that's
+                best
+                chalange for us
+              </p>
+
+            </div>
+          </div>
+        </div>
+        <div class="item   scroll-t">
+          <div class="head">
+            <h3>Quick Links</h3>
+
+          </div>
+          <div class="body">
+            <ul class="links">
+              <li><a href="#home" class="link">home</a></li>
+              <li><a href="#service" class="link">services</a></li>
+              <li><a href="#about" class="link">about</a></li>
+              <li><a href="#contact" class="link">contact</a></li>
+              <li><a href="#reviews" class="link">reviews</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="item   scroll-t">
+          <div class="head">
+            <h3>Contact Us</h3>
+
+          </div>
+          <div class="body">
+            <ul class="links">
+              <li>+32 5453 6443 30</li>
+              <li>+32 5453 6443 31</li>
+              <li>contactus@blueflight.com</li>
+              <li>AB1 Blue Sreet London, Uk</li>
+
+            </ul>
+          </div>
+        </div>
+        <div class="item   scroll-t">
+          <div class="head">
+            <h3>Subscribe Us</h3>
+
+          </div>
+          <div class="body">
+            <form action="" class="form">
+              <p>
+                best promotion comming from our email
+              </p>
+              <div class="box">
+                <input type="email" placeholder="email...">
+                <button class="btn">subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+       
+      </div>
+      <div class="rights   scroll-b">
+        <p>All Reserved By <a href="#">itcode</a> | 1990-2024</p>
+      </div>
+  </footer>
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="../Js files/index.js"></script>
+<script src="../Js files/disableBackButton.js"></script> 
+
+</body>
+
+</html>

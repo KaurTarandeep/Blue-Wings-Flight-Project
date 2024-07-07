@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Get Quote</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="../css files/BookFlights.css">
+</head>
+
+<body>
+    <div class="navbar logo">
+        <img src="../assets/logo.png" height="30" alt="" style="margin-left: 50px;">
+        <span>Blue <strong>Wings</strong></span>
+    </div>
+
+    <div class="container">
+        <h3 class="getquotetext">Get Quote</h3>
+        <div class="blocks">
+            <div class="left">
+                <div class="triptype">
+                    <button type="button" class="one-way-button">One-Way</button>
+                    <button type="button" class="round-trip-button">Round-Trip</button>
+                </div>
+                <p>First Name</p>
+                <input id="fname" class="input-field" type="text" placeholder="Enter your first name">
+                <p>Last Name</p>
+                <input id="lname" class="input-field" type="text" placeholder="Enter your last name">
+                <p>Email</p>
+                <input id="email" class="input-field" type="email" placeholder="Enter your email">
+                <p>Contact Number</p>
+                <input id="contact" class="input-field" type="tel" placeholder="Enter your contact number">
+            </div>
+            <div class="right">
+                <div class="trip-detail-container">
+                    <div class="one-way-container">
+                        <h3 class="trip-detail-title">One-Way</h3>
+                        <table>
+                            <table>
+                                <tr>
+                                    <td>From</td>
+                                    <td id="from"></td>
+                                </tr>
+                                <tr>
+                                    <td>To</td>
+                                    <td id="to"></td>
+                                </tr>
+                                <tr>
+                                    <td>Transfers</td>
+                                    <td id="transfers"></td>
+                                </tr>
+                                <tr>
+                                    <td>Departure</td>
+                                    <td id="departure"></td>
+                                </tr>
+                                <tr>
+                                    <td>Arrival</td>
+                                    <td id="arrival"></td>
+                                </tr>
+                            </table>
+                        </table>
+                    </div>
+                    <hr>
+                    <div class="price-container">
+                        <h3 class="trip-detail-title">Price</h3>
+                        <table>
+                            <tr>
+                                <td>Base Price</td>
+                                <td id="basePrice"></td>
+                            </tr>
+                            <tr>
+                                <td>Tax</td>
+                                <td id="tax"></td>
+                            </tr>
+                            <tr>
+                                <td>Total Price</td>
+                                <td id="totalPrice"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="buttons" style="justify-content: center;">
+            <button type="button" onclick="savePersonalDetails()">Book Tickets</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const flightDetails = JSON.parse(localStorage.getItem('selectedFlight'))
+            if (flightDetails) {
+                document.getElementById('from').innerText = flightDetails.arrival;
+                document.getElementById('to').innerText = flightDetails.departure;
+                document.getElementById('transfers').innerText = flightDetails.way;
+                document.getElementById('departure').innerText = flightDetails.ArrivalTime;
+                document.getElementById('arrival').innerText = flightDetails.destinationTime;
+               
+                const basePrice = parseFloat(flightDetails.price.replace('₹', '').replace(',', ''));
+                const tax = basePrice * 0.10; // Assuming tax is 10% of base price
+                const totalPrice = basePrice + tax;
+
+                document.getElementById('basePrice').innerText = `₹${basePrice.toFixed(2)}`;
+                document.getElementById('tax').innerText = `₹${tax.toFixed(2)}`;
+                document.getElementById('totalPrice').innerText = `₹${totalPrice.toFixed(2)}`;
+            }
+        }) 
+
+        function savePersonalDetails() {
+            let fname = document.getElementById('fname').value;
+            let lname = document.getElementById('lname').value;
+            let email = document.getElementById('email').value;
+            let contactNumber = document.getElementById('contact').value;
+
+            if (fname == "" || lname == "" || email == "" || contactNumber == "") {
+                alert('Please Enter Personal Details')
+            } else {
+                let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (!emailPattern.test(email) || contactNumber.length!=10) {
+                    alert('Please enter valid details')
+                } else {
+                    const personalDetails = {
+                        firstName: fname,
+                        lastName: lname,
+                        email: email,
+                        contactNumber: contactNumber
+                    };
+                    localStorage.setItem('personalDetails', JSON.stringify(personalDetails));
+                    window.location.href = 'PaymentGateway.html';
+                }
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>

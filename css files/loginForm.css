@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 100vh;
+    background: linear-gradient(to top, #000d2e, rgba(0, 13, 46, 0.234)), url(../assets/header.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+}
+
+.loginForm, .signinForm {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    width: 400px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ h2 {
+    color: #01113e;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+input[type=email], input[type=password] , input[type=text]{
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login, .signin {
+    background-color: #012062;
+    border: 1px solid #012062;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 90%;
+}
+
+.login a ,.signin a{
+    color: white;
+    text-decoration: none;
+}
+
+.login:hover {
+    background-color: #013a99;
+    border: 1px solid #013a99;
+}
+
+p {
+    margin: 10px 0;
+    color: #01113e;
+    font-family: 'Poppins', sans-serif;
+}
+
+p a {
+    color: #012062;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+span {
+    font-weight: 500;
+}
